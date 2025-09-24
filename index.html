@@ -1,139 +1,275 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="es">
-
 <head>
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-KZ4G5DGZ1J"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-KZ4G5DGZ1J');
-</script>
   <!-- Meta SEO -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Finca La Centinela | Arándanos Hidropónicos en Quito</title>
-  <meta name="description"
-    content="Arndanos frescos cultivados a 3.100 msnm, 100% hidropónicos y polinizados por abejas. Entregas en Quito. ¡Pide ya por WhatsApp!">
-  <meta name="keywords" content="arándanos, hidropónicos, Quito, Finca La Centinela, entrega, WhatsApp">
+  <meta name="description" content="Arándanos frescos cultivados a 3.100 msnm, 100% hidropónicos, polinizados por abejas y entregados en Quito. Pide ahora en WhatsApp." />
+  <meta name="keywords" content="arándanos,hidropónicos,Quito,Finca La Centinela,entrega,WhatsApp,antioxidantes" />
   <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
-<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-<link rel="shortcut icon" href="/favicon.ico" />
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-<meta name="apple-mobile-web-app-title" content="Centinela" />
-<link rel="manifest" href="/site.webmanifest" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="shortcut icon" href="/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <meta name="apple-mobile-web-app-title" content="Centinela" />
+  <link rel="manifest" href="/site.webmanifest" />
 
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <!-- AOS Animate on Scroll -->
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-    integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
-
-<body class="bg-gray-50 font-sans leading-relaxed text-gray-800">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-KZ4G5DGZ1J"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { dataLayer.push(arguments); }
+  gtag('js', new Date());
+  gtag('config', 'G-KZ4G5DGZ1J');
+</script>
+<body class="bg-gray-50 font-sans leading-relaxed text-gray-800 scroll-smooth">
+  <!-- Navegación -->
+  <nav class="sticky top-0 z-40 bg-white/90 backdrop-blur border-b border-green-100">
+    <div class="max-w-6xl mx-auto flex items-center justify-between px-4 py-3">
+      <a href="#" class="text-lg font-semibold text-green-700 tracking-tight">Finca La Centinela</a>
+      <div class="hidden md:flex items-center gap-6 text-sm font-medium text-gray-700">
+        <a href="#features" class="hover:text-green-600 transition-colors">Cultivo</a>
+        <a href="#evidence" class="hover:text-green-600 transition-colors">Respaldo científico</a>
+        <a href="#bienestar" class="hover:text-green-600 transition-colors">Recetas</a>
+        <a href="#faq" class="hover:text-green-600 transition-colors">Preguntas</a>
+      </div>
+      <a href="https://wa.me/593998783687?text=¡Hola!%20Quiero%20pedir%20arándanos%20frescos%20de%20Finca%20La%20Centinela." class="inline-flex items-center gap-2 bg-green-600 hover:bg-green-700 text-white text-sm font-semibold py-2 px-4 rounded-lg shadow transition-transform hover:-translate-y-0.5">
+        <i class="fab fa-whatsapp"></i>
+        Pedir ahora
+      </a>
+    </div>
+  </nav>
 
   <!-- Hero Section -->
-  <header class="relative h-screen bg-cover bg-center" style="background-image:url('ara.jpg');">
+  <header class="relative min-h-[calc(100vh-56px)] md:min-h-[calc(100vh-80px)] flex items-center justify-center overflow-hidden bg-green-950">
     <video autoplay muted loop playsinline class="absolute inset-0 w-full h-full object-cover">
       <source src="farm_dogs.mp4" type="video/mp4">
       Tu navegador no soporta video HTML5.
     </video>
-    <div class="absolute inset-0 bg-black bg-opacity-50"></div>
-    <div class="container mx-auto h-full flex flex-col justify-center items-center text-center px-4">
-      <h1 class="text-4xl md:text-6xl font-bold text-white mb-4 animate-fadeInDown" data-aos="fade-down"
-        data-aos-duration="1000">Finca La Centinela</h1>
-      <p class="text-xl md:text-2xl text-green-200 mb-6 animate-fadeInUp" data-aos="fade-up" data-aos-duration="1000">
-        Arándanos frescos a 3.100 msnm<br>100% hidropónicos & polinizados por abejas</p>
-      <a href="https://wa.me/593998783687?text=¡Hola!%20Quiero%20pedir%20arándanos%20frescos%20de%20Finca%20La%20Centinela."
-        class="inline-block bg-green-500 hover:bg-green-600 text-white font-semibold py-3 px-6 rounded-lg shadow-lg transition-transform transform hover:scale-105"
-        data-aos="zoom-in" data-aos-duration="800" data-aos-delay="500">
-        <i class="fab fa-whatsapp mr-2"></i> Pide por WhatsApp
-      </a>
-    </div>
-    <div class="absolute bottom-8 w-full text-center text-white">
-      <a href="#features" class="text-2xl animate-bounce"><i class="fas fa-chevron-down"></i></a>
+    <div class="absolute inset-0 bg-black/50"></div>
+    <div class="relative z-10 max-w-3xl text-center px-4" data-aos="fade-up" data-aos-duration="1000">
+      <span class="inline-flex items-center gap-2 text-xs uppercase tracking-wide text-green-200 bg-white/10 px-3 py-1 rounded-full mb-6">
+        <i class="fa-solid fa-seedling"></i>
+        Arándanos hidropónicos a 3.100 msnm
+      </span>
+      <h1 class="text-4xl md:text-6xl font-bold text-white mb-6">Frescos, sostenibles y listos para sorprender</h1>
+      <p class="text-lg md:text-xl text-green-100 mb-8">Cultivamos arándanos premium con agua pura de páramo, polinizados por abejas locales para preservar sabor y nutrientes. Llévalos del invernadero a tu mesa en menos de 24 horas.</p>
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a href="https://wa.me/593998783687?text=¡Hola!%20Quiero%20pedir%20arándanos%20frescos%20de%20Finca%20La%20Centinela." class="inline-flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white font-semibold py-3 px-6 rounded-lg shadow-lg transition-transform transform hover:scale-105">
+          <i class="fab fa-whatsapp"></i>
+          Pide por WhatsApp
+        </a>
+        <a href="#evidence" class="inline-flex items-center gap-2 text-sm font-semibold text-white/90 hover:text-white underline-offset-4">
+          <i class="fa-solid fa-flask"></i>
+          Ver respaldo científico
+        </a>
+      </div>
     </div>
   </header>
 
-  <!-- Características -->
-  <main class="container mx-auto py-16 px-4">
+  <main class="max-w-6xl mx-auto py-20 px-4 space-y-24">
+    <!-- Características -->
     <section id="features" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
       <div class="bg-white rounded-xl shadow-lg p-6 text-center" data-aos="fade-up">
         <i class="fas fa-mountain text-4xl text-green-600 mb-4"></i>
-        <h3 class="text-xl font-semibold mb-2">Altitud Óptima</h3>
-        <p>Cultivados a 3.100 msnm para máxima frescura y nutrientes.</p>
+        <h3 class="text-xl font-semibold mb-2">Altitud óptima</h3>
+        <p>Los 3.100 msnm ofrecen noches frías y días templados que potencian el color y la firmeza del fruto.</p>
       </div>
       <div class="bg-white rounded-xl shadow-lg p-6 text-center" data-aos="fade-up" data-aos-delay="100">
         <i class="fas fa-water text-4xl text-green-600 mb-4"></i>
         <h3 class="text-xl font-semibold mb-2">Hidropónicos</h3>
-        <p>Sin suelo y sin pesticidas: cultivo limpio y sostenible.</p>
+        <p>Cultivo sin suelo y libre de pesticidas, con nutrición controlada y agua de alta pureza.</p>
       </div>
       <div class="bg-white rounded-xl shadow-lg p-6 text-center" data-aos="fade-up" data-aos-delay="200">
         <i class="fas fa-leaf text-4xl text-green-600 mb-4"></i>
-        <h3 class="text-xl font-semibold mb-2">Polinización Natural</h3>
-        <p>Abejas locales aseguran una polinización eficaz y ecológica.</p>
+        <h3 class="text-xl font-semibold mb-2">Polinización natural</h3>
+        <p>Abejas nativas garantizan flores sanas y un ciclo regenerativo para la finca.</p>
       </div>
       <div class="bg-white rounded-xl shadow-lg p-6 text-center" data-aos="fade-up" data-aos-delay="300">
         <i class="fas fa-truck text-4xl text-green-600 mb-4"></i>
-        <h3 class="text-xl font-semibold mb-2">Entrega en Quito</h3>
-        <p>Recibe tus arándanos frescos directo a tu puerta.</p>
+        <h3 class="text-xl font-semibold mb-2">Entrega ágil en Quito</h3>
+        <p>Logística en frío para conservar sabor y textura hasta tu puerta en menos de 24 horas.</p>
       </div>
     </section>
 
-    <!-- Testimonios mejor integrados -->
-    <section class="py-16" data-aos="fade-up">
-      <div class="max-w-5xl mx-auto text-center">
-        <h2 class="text-3xl font-bold mb-10 text-green-700">Nuestros clientes lo confirman 🍃</h2>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div class="bg-white p-6 rounded-xl shadow-md border border-green-100">
-            <p class="text-gray-700 italic">“¡Deliciosos y súper frescos! Los mejores arándanos que he probado.”</p>
-            <div class="mt-4 text-sm text-green-600 font-semibold">– Carla V., Quito</div>
+    <!-- Respaldo Científico -->
+    <section id="evidence" class="space-y-10" data-aos="fade-up">
+      <div class="text-center max-w-3xl mx-auto">
+        <h2 class="text-3xl font-bold text-green-700 mb-4">Respaldo científico y nutricional</h2>
+        <p class="text-lg text-gray-600">Nuestros arándanos concentran antioxidantes, vitamina C y fibra soluble. Aquí algunas fuentes médicas que explican sus beneficios respaldados por evidencia.</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <article class="bg-white rounded-xl border border-green-100 p-6 flex flex-col gap-4 shadow-sm">
+          <div class="flex items-center gap-3 text-green-600 font-semibold">
+            <i class="fa-solid fa-heart-pulse text-2xl"></i>
+            Salud cardiovascular
           </div>
-          <div class="bg-white p-6 rounded-xl shadow-md border border-green-100">
-            <p class="text-gray-700 italic">“La entrega fue rápida y el sabor es espectacular.”</p>
-            <div class="mt-4 text-sm text-green-600 font-semibold">– Andrés R., Cumbayá</div>
+          <p class="text-sm text-gray-600">El consumo regular de arándanos puede contribuir a reducir la presión arterial y mejorar la función arterial gracias a sus antocianinas.</p>
+          <a href="https://www.ahajournals.org/doi/10.1161/JAHA.118.010146" target="_blank" rel="noopener" class="text-sm font-semibold text-green-600 hover:text-green-700 inline-flex items-center gap-2">Leer estudio (American Heart Association) <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+        </article>
+        <article class="bg-white rounded-xl border border-green-100 p-6 flex flex-col gap-4 shadow-sm">
+          <div class="flex items-center gap-3 text-green-600 font-semibold">
+            <i class="fa-solid fa-brain text-2xl"></i>
+            Protección cognitiva
           </div>
-          <div class="bg-white p-6 rounded-xl shadow-md border border-green-100">
-            <p class="text-gray-700 italic">“Me encanta que trabajen con abejas y sin pesticidas ❤️”</p>
-            <div class="mt-4 text-sm text-green-600 font-semibold">– Sofía M., Tumbaco</div>
+          <p class="text-sm text-gray-600">Los antioxidantes de los arándanos se asocian a mejoras en memoria y procesos de envejecimiento cerebral.</p>
+          <a href="https://pubmed.ncbi.nlm.nih.gov/29253101/" target="_blank" rel="noopener" class="text-sm font-semibold text-green-600 hover:text-green-700 inline-flex items-center gap-2">Leer estudio (PubMed) <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+        </article>
+        <article class="bg-white rounded-xl border border-green-100 p-6 flex flex-col gap-4 shadow-sm">
+          <div class="flex items-center gap-3 text-green-600 font-semibold">
+            <i class="fa-solid fa-person-running text-2xl"></i>
+            Recuperación muscular
+          </div>
+          <p class="text-sm text-gray-600">La vitamina C y los compuestos antiinflamatorios ayudan a la recuperación después de entrenamientos intensos.</p>
+          <a href="https://www.mdpi.com/2072-6643/12/9/2769" target="_blank" rel="noopener" class="text-sm font-semibold text-green-600 hover:text-green-700 inline-flex items-center gap-2">Leer estudio (Nutrients Journal) <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+        </article>
+      </div>
+      <p class="text-xs text-center text-gray-500">La información compartida es de referencia y no sustituye la recomendación de un profesional de la salud.</p>
+    </section>
+
+    <!-- Hub de bienestar -->
+    <section id="bienestar" class="space-y-10" data-aos="fade-up">
+      <div class="text-center max-w-3xl mx-auto">
+        <h2 class="text-3xl font-bold text-green-700 mb-4">Ideas para disfrutar y cuidarte</h2>
+        <p class="text-lg text-gray-600">Explora recetas sencillas, tips de conservación y cómo conectan con los beneficios respaldados por la ciencia.</p>
+      </div>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
+        <div class="bg-white rounded-2xl shadow-lg p-8 space-y-6 border border-green-100">
+          <div class="flex items-center gap-3 text-green-600 font-semibold">
+            <i class="fa-solid fa-bowl-food text-2xl"></i>
+            Recetas destacadas
+          </div>
+          <div class="space-y-4">
+            <details class="group border border-green-100 rounded-lg p-4">
+              <summary class="flex items-center justify-between cursor-pointer font-semibold text-gray-700">
+                Smoothie antioxidante matutino
+                <i class="fa-solid fa-chevron-down text-sm transition-transform group-open:rotate-180"></i>
+              </summary>
+              <p class="mt-2 text-sm text-gray-600">Mezcla 1 taza de nuestros arándanos, leche de almendras, espinaca y un toque de jengibre. Ideal para aprovechar las antocianinas citadas en el estudio cardiovascular.</p>
+            </details>
+            <details class="group border border-green-100 rounded-lg p-4">
+              <summary class="flex items-center justify-between cursor-pointer font-semibold text-gray-700">
+                Ensalada de granos andinos
+                <i class="fa-solid fa-chevron-down text-sm transition-transform group-open:rotate-180"></i>
+              </summary>
+              <p class="mt-2 text-sm text-gray-600">Quinua, queso fresco y arándanos frescos con vinagreta de miel. Combina fibra soluble para saciedad y apoyo cardiovascular.</p>
+            </details>
+            <details class="group border border-green-100 rounded-lg p-4">
+              <summary class="flex items-center justify-between cursor-pointer font-semibold text-gray-700">
+                Postre frío sin azúcar refinada
+                <i class="fa-solid fa-chevron-down text-sm transition-transform group-open:rotate-180"></i>
+              </summary>
+              <p class="mt-2 text-sm text-gray-600">Yogur griego, chía y arándanos macerados con limón. Mantiene los antioxidantes y aporta proteínas post-entrenamiento.</p>
+            </details>
+          </div>
+          <a href="https://wa.me/593998783687?text=Quiero%20conocer%20la%20suscripción%20de%20arándanos%20de%20La%20Centinela" class="inline-flex items-center gap-2 text-sm font-semibold text-green-600 hover:text-green-700">
+            ¿Te gustaría recibir recetas nuevas cada cosecha? Escríbenos.
+            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+          </a>
+        </div>
+        <div class="bg-white rounded-2xl shadow-lg p-8 space-y-6 border border-green-100">
+          <div class="flex items-center gap-3 text-green-600 font-semibold">
+            <i class="fa-solid fa-box-open text-2xl"></i>
+            Conservación y suscripción
+          </div>
+          <ul class="space-y-4 text-sm text-gray-600">
+            <li class="flex items-start gap-3"><i class="fa-solid fa-temperature-low text-green-500 mt-1"></i> Guarda los arándanos sin lavar en la parte baja de la refrigeradora; lávalos justo antes de consumir para mantener textura y bloom natural.</li>
+            <li class="flex items-start gap-3"><i class="fa-solid fa-calendar-check text-green-500 mt-1"></i> Cosechamos cada semana. Suscríbete a cajas de 500 g o 1 kg y recibe recordatorios por WhatsApp con ideas de uso.</li>
+            <li class="flex items-start gap-3"><i class="fa-solid fa-certificate text-green-500 mt-1"></i> Certificados en buenas prácticas agrícolas y análisis microbiológicos vigentes a disposición.</li>
+          </ul>
+          <div class="bg-green-50 border border-green-100 rounded-xl p-5 text-sm">
+            <h3 class="font-semibold text-green-700 mb-2">Dato rápido</h3>
+            <p>Una porción de 150 g de nuestros arándanos aporta aproximadamente 3,6 g de fibra y más del 25% de la vitamina C recomendada al día.</p>
           </div>
         </div>
       </div>
     </section>
 
+    <!-- Testimonios -->
+    <section class="py-10" data-aos="fade-up">
+      <div class="max-w-5xl mx-auto text-center">
+        <h2 class="text-3xl font-bold mb-10 text-green-700">Clientes que ya disfrutan el sabor Centinela</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div class="bg-white p-6 rounded-xl shadow-md border border-green-100">
+            <p class="text-gray-700 italic">“Deliciosos y súper frescos. Noté la diferencia en textura desde la primera caja.”</p>
+            <div class="mt-4 text-sm text-green-600 font-semibold">— Carla V., Quito</div>
+          </div>
+          <div class="bg-white p-6 rounded-xl shadow-md border border-green-100">
+            <p class="text-gray-700 italic">“Entrega puntual y sin pérdidas. Perfectos para nuestros postres artesanales.”</p>
+            <div class="mt-4 text-sm text-green-600 font-semibold">— Andrés R., Cumbayá</div>
+          </div>
+          <div class="bg-white p-6 rounded-xl shadow-md border border-green-100">
+            <p class="text-gray-700 italic">“Me encanta saber que apoyan a las abejas y cuidan el suelo del páramo.”</p>
+            <div class="mt-4 text-sm text-green-600 font-semibold">— Sofía M., Tumbaco</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="space-y-10" data-aos="fade-up">
+      <div class="text-center max-w-3xl mx-auto">
+        <h2 class="text-3xl font-bold text-green-700 mb-4">Preguntas frecuentes</h2>
+        <p class="text-lg text-gray-600">Resolvemos las dudas más comunes para que tu pedido llegue perfecto.</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <details class="group bg-white border border-green-100 rounded-xl p-6">
+          <summary class="font-semibold text-gray-700 cursor-pointer flex items-center justify-between">¿Cuáles son las presentaciones disponibles?<i class="fa-solid fa-plus text-sm transition-transform group-open:rotate-45"></i></summary>
+          <p class="mt-3 text-sm text-gray-600">Disponemos de cajas de 250 g, 500 g y 1 kg. Para restaurantes, armamos pedidos personalizados con logística en frío.</p>
+        </details>
+        <details class="group bg-white border border-green-100 rounded-xl p-6">
+          <summary class="font-semibold text-gray-700 cursor-pointer flex items-center justify-between">¿Cómo funciona la suscripción?<i class="fa-solid fa-plus text-sm transition-transform group-open:rotate-45"></i></summary>
+          <p class="mt-3 text-sm text-gray-600">Elige tu cantidad y frecuencia semanal o quincenal. Te avisamos antes de cada cosecha y puedes pausar o ajustar tu pedido en cualquier momento.</p>
+        </details>
+        <details class="group bg-white border border-green-100 rounded-xl p-6">
+          <summary class="font-semibold text-gray-700 cursor-pointer flex items-center justify-between">¿Qué métodos de pago aceptan?<i class="fa-solid fa-plus text-sm transition-transform group-open:rotate-45"></i></summary>
+          <p class="mt-3 text-sm text-gray-600">Transferencias bancarias, pago con tarjeta mediante link seguro y efectivo contra entrega en Quito y Valles.</p>
+        </details>
+        <details class="group bg-white border border-green-100 rounded-xl p-6">
+          <summary class="font-semibold text-gray-700 cursor-pointer flex items-center justify-between">¿Entregan fuera de Quito?<i class="fa-solid fa-plus text-sm transition-transform group-open:rotate-45"></i></summary>
+          <p class="mt-3 text-sm text-gray-600">Sí, coordinamos envíos especiales a ciudades principales del Ecuador. Contáctanos por WhatsApp para confirmar disponibilidad.</p>
+        </details>
+      </div>
+    </section>
   </main>
 
   <!-- Footer -->
-  <footer class="bg-white py-6">
-    <div class="container mx-auto text-center text-gray-600">
-      &copy; 2025 Finca La Centinela. Todos los derechos reservados.<br>
-      <a href="#" class="hover:underline">Política de Privacidad</a> |
-      <a href="#" class="hover:underline">Términos y Condiciones</a>
-      <div class="mt-2 py-4">
-<span class="text-gray-600 text-sm">Síguenos:</span>
-          <a href="https://www.instagram.com/arandanoscentinela/" target="_blank" aria-label="Instagram"
-             class="text-pink-500 hover:text-pink-600 text-xl">
-            <i class="fab fa-instagram"></i>
-          </a>
-          <a href="https://wa.me/593998783687" target="_blank" aria-label="WhatsApp"
-             class="text-green-500 hover:text-green-600 text-xl">
-            <i class="fab fa-whatsapp"></i>
-          </a>
+  <footer class="bg-white py-10 border-t border-green-100">
+    <div class="max-w-6xl mx-auto px-4 text-center text-gray-600 space-y-4">
+      <div class="flex flex-col md:flex-row items-center justify-center gap-6 text-sm">
+        <a href="#features" class="hover:text-green-600">Cultivo</a>
+        <a href="#evidence" class="hover:text-green-600">Respaldo científico</a>
+        <a href="#bienestar" class="hover:text-green-600">Recetas</a>
+        <a href="#faq" class="hover:text-green-600">Preguntas</a>
+      </div>
+      <p class="text-xs text-gray-500 max-w-3xl mx-auto">&copy; 2025 Finca La Centinela. Todos los derechos reservados. Arándanos hidropónicos cultivados en Quito con prácticas regenerativas y respeto por la biodiversidad.</p>
+      <div class="flex items-center justify-center gap-4 text-sm">
+        <span class="text-gray-600">Síguenos:</span>
+        <a href="https://www.instagram.com/arandanoscentinela/" target="_blank" aria-label="Instagram" class="text-pink-500 hover:text-pink-600 text-xl">
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a href="https://wa.me/593998783687" target="_blank" aria-label="WhatsApp" class="text-green-500 hover:text-green-600 text-xl">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+      </div>
+      <div class="text-xs text-gray-400">
+        <a href="#" class="hover:text-green-600">Política de Privacidad</a> |
+        <a href="#" class="hover:text-green-600">Términos y Condiciones</a>
       </div>
     </div>
   </footer>
-
 
   <!-- AOS Initialization -->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
     AOS.init({ once: true });
   </script>
-
 </body>
-
 </html>
