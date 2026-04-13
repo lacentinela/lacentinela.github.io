@@ -1,139 +1,884 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
   <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-KZ4G5DGZ1J"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-KZ4G5DGZ1J"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-KZ4G5DGZ1J');
+  </script>
 
-  gtag('config', 'G-KZ4G5DGZ1J');
-</script>
-  <!-- Meta SEO -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Finca La Centinela | Arándanos Hidropónicos en Quito</title>
-  <meta name="description"
-    content="Arndanos frescos cultivados a 3.100 msnm, 100% hidropónicos y polinizados por abejas. Entregas en Quito. ¡Pide ya por WhatsApp!">
+  <meta name="description" content="Arándanos frescos cultivados a 3.100 msnm, 100% hidropónicos y polinizados por abejas. Entregas en Quito. ¡Pide ya por WhatsApp!">
   <meta name="keywords" content="arándanos, hidropónicos, Quito, Finca La Centinela, entrega, WhatsApp">
-  <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
-<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-<link rel="shortcut icon" href="/favicon.ico" />
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-<meta name="apple-mobile-web-app-title" content="Centinela" />
-<link rel="manifest" href="/site.webmanifest" />
 
-  <!-- Tailwind CSS CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <!-- AOS Animate on Scroll -->
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-    integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="shortcut icon" href="/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <meta name="apple-mobile-web-app-title" content="Centinela" />
+  <link rel="manifest" href="/site.webmanifest" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Crimson+Pro:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --cream: #FAF6EF;
+      --cream-dark: #F0E9DA;
+      --ink: #1C1008;
+      --ink-light: #3D2E1E;
+      --berry: #2E1560;
+      --berry-mid: #5A3A9A;
+      --berry-light: #EAE4F5;
+      --gold: #C8973E;
+      --font-display: 'Cormorant Garamond', Georgia, serif;
+      --font-body: 'Crimson Pro', Georgia, serif;
+      --font-mono: 'DM Mono', monospace;
+      --max-w: 1200px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--cream);
+      color: var(--ink);
+      font-family: var(--font-body);
+      font-size: 1.125rem;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* Grain overlay */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 9999;
+    }
+
+    h1, h2, h3 { font-family: var(--font-display); font-weight: 400; line-height: 1.1; }
+
+    .label {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    /* ── Nav ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 1.25rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: background 0.4s, backdrop-filter 0.4s, border-color 0.4s;
+      border-bottom: 1px solid transparent;
+    }
+    nav.scrolled {
+      background: rgba(250, 246, 239, 0.93);
+      backdrop-filter: blur(12px);
+      border-color: rgba(28, 16, 8, 0.08);
+    }
+    .nav-logo {
+      font-family: var(--font-display);
+      font-size: 1.35rem;
+      font-weight: 500;
+      color: white;
+      text-decoration: none;
+      letter-spacing: 0.02em;
+      transition: color 0.4s;
+    }
+    nav.scrolled .nav-logo { color: var(--ink); }
+    .nav-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: #25D366;
+      color: white;
+      text-decoration: none;
+      padding: 0.5rem 1.25rem;
+      border-radius: 100px;
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .nav-cta:hover { transform: translateY(-1px); box-shadow: 0 4px 20px rgba(37,211,102,0.4); }
+    .nav-cta svg { width: 15px; height: 15px; }
+
+    /* ── Hero ── */
+    #hero {
+      position: relative;
+      height: 100svh;
+      min-height: 600px;
+      display: flex;
+      align-items: flex-end;
+      padding: 0 2rem 4.5rem;
+      overflow: hidden;
+    }
+    #hero video {
+      position: absolute;
+      inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+    }
+    #hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(8,3,18,0.15) 0%, rgba(8,3,18,0.08) 45%, rgba(8,3,18,0.78) 100%);
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: var(--max-w);
+      margin: 0 auto;
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: flex-end;
+      gap: 2rem;
+    }
+    .hero-eyebrow {
+      display: block;
+      margin-bottom: 0.75rem;
+      opacity: 0;
+      animation: revealUp 0.8s cubic-bezier(0.16,1,0.3,1) 0.15s forwards;
+    }
+    .hero-h1 {
+      font-size: clamp(3.5rem, 8vw, 7.5rem);
+      font-weight: 300;
+      line-height: 0.95;
+      letter-spacing: -0.025em;
+      color: white;
+      opacity: 0;
+      animation: revealUp 1s cubic-bezier(0.16,1,0.3,1) 0.3s forwards;
+    }
+    .hero-h1 em { font-style: italic; }
+    .hero-sub {
+      color: rgba(255,255,255,0.7);
+      font-size: 1.1rem;
+      font-weight: 300;
+      margin-top: 1.25rem;
+      opacity: 0;
+      animation: revealUp 0.8s cubic-bezier(0.16,1,0.3,1) 0.55s forwards;
+    }
+    .hero-actions {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-top: 2rem;
+      opacity: 0;
+      animation: revealUp 0.8s cubic-bezier(0.16,1,0.3,1) 0.75s forwards;
+    }
+    .hero-altitude {
+      font-family: var(--font-display);
+      font-size: clamp(4rem, 10vw, 9rem);
+      font-weight: 300;
+      line-height: 1;
+      letter-spacing: -0.04em;
+      color: rgba(255,255,255,0.12);
+      white-space: nowrap;
+      text-align: right;
+      align-self: flex-end;
+      opacity: 0;
+      animation: revealFade 2s ease 1.1s forwards;
+    }
+    .hero-altitude small {
+      display: block;
+      font-family: var(--font-mono);
+      font-size: 0.6rem;
+      letter-spacing: 0.2em;
+      color: rgba(255,255,255,0.25);
+      text-align: right;
+      margin-top: 0.2rem;
+    }
+    .scroll-hint {
+      position: absolute;
+      bottom: 1.75rem;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: var(--font-mono);
+      font-size: 0.58rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.35);
+      opacity: 0;
+      animation: revealFade 1s ease 1.6s forwards;
+    }
+    .scroll-hint::after {
+      content: '';
+      width: 1px;
+      height: 36px;
+      background: linear-gradient(to bottom, rgba(255,255,255,0.35), transparent);
+      animation: scrollPulse 2.2s ease-in-out infinite;
+    }
+
+    /* ── Buttons ── */
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      background: #25D366;
+      color: white;
+      text-decoration: none;
+      padding: 0.9rem 1.8rem;
+      border-radius: 100px;
+      font-family: var(--font-mono);
+      font-size: 0.73rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(37,211,102,0.45); }
+    .btn-primary svg { width: 17px; height: 17px; }
+    .btn-ghost {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      background: transparent;
+      color: white;
+      text-decoration: none;
+      padding: 0.9rem 1.8rem;
+      border-radius: 100px;
+      border: 1px solid rgba(255,255,255,0.3);
+      font-family: var(--font-mono);
+      font-size: 0.73rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      transition: background 0.2s, border-color 0.2s;
+    }
+    .btn-ghost:hover { background: rgba(255,255,255,0.07); border-color: rgba(255,255,255,0.55); }
+
+    /* ── Provenance ── */
+    #provenance {
+      background: var(--berry);
+      color: var(--cream);
+      padding: 5rem 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+    #provenance::before {
+      content: '3100';
+      position: absolute;
+      right: -1rem;
+      top: 50%;
+      transform: translateY(-50%);
+      font-family: var(--font-display);
+      font-size: clamp(8rem, 22vw, 20rem);
+      font-weight: 700;
+      color: rgba(255,255,255,0.035);
+      line-height: 1;
+      pointer-events: none;
+      letter-spacing: -0.04em;
+    }
+    .provenance-grid {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 3rem;
+    }
+    .prov-item { border-top: 1px solid rgba(255,255,255,0.13); padding-top: 1.5rem; }
+    .prov-num {
+      font-family: var(--font-display);
+      font-size: clamp(2.5rem, 5vw, 4.5rem);
+      font-weight: 300;
+      letter-spacing: -0.02em;
+      line-height: 1;
+      margin-bottom: 0.4rem;
+    }
+    .prov-num sup { font-size: 0.44em; vertical-align: super; }
+    .prov-lbl {
+      font-family: var(--font-mono);
+      font-size: 0.62rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: rgba(250,246,239,0.4);
+      margin-bottom: 0.5rem;
+    }
+    .prov-desc { font-size: 0.92rem; color: rgba(250,246,239,0.62); font-weight: 300; }
+
+    /* ── Story ── */
+    #story { padding: 7rem 2rem; }
+    .story-grid {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 5fr 4fr;
+      gap: 5rem;
+      align-items: center;
+    }
+    .story-img-wrap { position: relative; }
+    .story-img-wrap img {
+      width: 100%;
+      aspect-ratio: 4/5;
+      object-fit: cover;
+      border-radius: 2px;
+      display: block;
+    }
+    .story-badge {
+      position: absolute;
+      bottom: -1.5rem;
+      right: -1.5rem;
+      background: var(--gold);
+      color: white;
+      width: 5.5rem;
+      height: 5.5rem;
+      border-radius: 50%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-size: 0.72rem;
+      text-align: center;
+      line-height: 1.3;
+    }
+    .story-badge strong { font-size: 1.6rem; font-weight: 500; display: block; line-height: 1; }
+    .story-text .label { display: block; margin-bottom: 1.25rem; }
+    .story-text h2 { font-size: clamp(2rem, 3.5vw, 3rem); font-weight: 400; margin-bottom: 1.5rem; }
+    .story-text h2 em { font-style: italic; color: var(--berry-mid); }
+    .story-divider { width: 3rem; height: 1px; background: var(--gold); margin: 1.75rem 0; }
+    .story-text p { color: var(--ink-light); font-size: 1.02rem; font-weight: 300; margin-bottom: 0.9rem; }
+
+    /* ── Features ── */
+    #features { background: var(--cream-dark); padding: 7rem 2rem; }
+    .features-wrap { max-width: var(--max-w); margin: 0 auto; }
+    .features-head {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: end;
+      margin-bottom: 4rem;
+    }
+    .features-head h2 { font-size: clamp(2rem, 4vw, 3.5rem); font-weight: 300; line-height: 1.1; }
+    .features-head p { color: var(--ink-light); font-size: 1rem; font-weight: 300; }
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      border: 1px solid rgba(28,16,8,0.09);
+    }
+    .feat {
+      padding: 2.5rem 1.75rem;
+      border-right: 1px solid rgba(28,16,8,0.09);
+      transition: background 0.3s;
+    }
+    .feat:last-child { border-right: none; }
+    .feat:hover { background: var(--berry-light); }
+    .feat-num { font-family: var(--font-mono); font-size: 0.62rem; color: rgba(28,16,8,0.28); letter-spacing: 0.1em; margin-bottom: 1.5rem; }
+    .feat-icon { font-size: 1.75rem; display: block; margin-bottom: 1rem; }
+    .feat h3 { font-family: var(--font-display); font-size: 1.3rem; font-weight: 500; margin-bottom: 0.5rem; }
+    .feat p { font-size: 0.88rem; color: var(--ink-light); font-weight: 300; line-height: 1.6; }
+
+    /* ── Products ── */
+    #products { padding: 7rem 2rem; }
+    .products-wrap { max-width: var(--max-w); margin: 0 auto; }
+    .products-head { text-align: center; margin-bottom: 4rem; }
+    .products-head .label { display: block; margin-bottom: 1rem; }
+    .products-head h2 { font-size: clamp(2rem, 4vw, 3.5rem); font-weight: 300; }
+    .products-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+
+    .product-card {
+      background: white;
+      border: 1px solid rgba(28,16,8,0.08);
+      padding: 2.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.9rem;
+      position: relative;
+      overflow: hidden;
+      transition: border-color 0.3s, box-shadow 0.3s;
+    }
+    .product-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--berry);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s;
+    }
+    .product-card:hover { border-color: rgba(46,21,96,0.2); box-shadow: 0 8px 40px rgba(46,21,96,0.08); }
+    .product-card:hover::before { transform: scaleX(1); }
+    .product-card.featured { background: var(--berry); border-color: var(--berry); color: var(--cream); }
+    .product-card.featured::before { display: none; }
+
+    .prod-badge {
+      position: absolute;
+      top: 1.5rem; right: 1.5rem;
+      background: var(--gold);
+      color: white;
+      font-family: var(--font-mono);
+      font-size: 0.58rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.28rem 0.7rem;
+      border-radius: 100px;
+    }
+    .prod-size { font-family: var(--font-display); font-size: 3rem; font-weight: 300; line-height: 1; letter-spacing: -0.02em; }
+    .prod-size span { font-size: 1rem; font-family: var(--font-mono); letter-spacing: 0.05em; margin-left: 0.2rem; opacity: 0.55; }
+    .prod-name { font-family: var(--font-mono); font-size: 0.62rem; letter-spacing: 0.15em; text-transform: uppercase; opacity: 0.45; }
+    .prod-desc { font-size: 0.88rem; font-weight: 300; opacity: 0.68; line-height: 1.55; }
+    .prod-price { font-family: var(--font-display); font-size: 1.8rem; font-weight: 500; color: var(--berry); margin-top: auto; }
+    .product-card.featured .prod-price { color: var(--gold); }
+    .prod-note { font-family: var(--font-mono); font-size: 0.6rem; letter-spacing: 0.06em; opacity: 0.4; }
+    .prod-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: #25D366;
+      color: white;
+      text-decoration: none;
+      padding: 0.72rem 1.4rem;
+      border-radius: 100px;
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      transition: transform 0.2s, box-shadow 0.2s;
+      align-self: flex-start;
+    }
+    .prod-cta:hover { transform: translateY(-1px); box-shadow: 0 4px 16px rgba(37,211,102,0.4); }
+    .prod-cta svg { width: 14px; height: 14px; }
+
+    /* ── Testimonials ── */
+    #testimonials { background: var(--berry); color: var(--cream); padding: 7rem 2rem; }
+    .test-wrap { max-width: var(--max-w); margin: 0 auto; }
+    .test-head {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      margin-bottom: 4rem;
+    }
+    .test-head h2 { font-size: clamp(2rem, 4vw, 3rem); font-weight: 300; }
+    .test-head .label { color: rgba(250,246,239,0.38); }
+    .test-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3rem; }
+    .testimonial { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 1.5rem; }
+    .test-q {
+      font-size: 1.05rem;
+      font-weight: 300;
+      line-height: 1.72;
+      font-style: italic;
+      color: rgba(250,246,239,0.82);
+      margin-bottom: 1.25rem;
+    }
+    .test-q::before {
+      content: '\201C';
+      font-family: var(--font-display);
+      font-size: 3rem;
+      line-height: 0.8;
+      color: var(--gold);
+      display: block;
+      margin-bottom: 0.4rem;
+    }
+    .test-author { font-family: var(--font-mono); font-size: 0.62rem; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(250,246,239,0.38); }
+
+    /* ── Delivery ── */
+    #delivery { background: var(--cream-dark); padding: 7rem 2rem; }
+    .delivery-grid {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+    .delivery-text .label { display: block; margin-bottom: 1.25rem; }
+    .delivery-text h2 { font-size: clamp(2rem, 3.5vw, 3rem); font-weight: 300; margin-bottom: 1.5rem; }
+    .delivery-text p { color: var(--ink-light); font-weight: 300; margin-bottom: 1.5rem; }
+    .zones { list-style: none; display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .zones li {
+      background: var(--berry-light);
+      color: var(--berry);
+      font-family: var(--font-mono);
+      font-size: 0.62rem;
+      letter-spacing: 0.08em;
+      padding: 0.32rem 0.85rem;
+      border-radius: 100px;
+      text-transform: uppercase;
+    }
+    .delivery-visual {
+      background: var(--berry);
+      aspect-ratio: 1;
+      border-radius: 2px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 3rem;
+      color: var(--cream);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .delivery-visual::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at center, rgba(200,151,62,0.15) 0%, transparent 70%);
+    }
+    .dv-icon { font-size: 3.5rem; margin-bottom: 1.5rem; position: relative; }
+    .delivery-visual h3 { font-size: 1.75rem; font-weight: 300; margin-bottom: 0.5rem; position: relative; }
+    .delivery-visual p { font-size: 0.82rem; opacity: 0.5; font-family: var(--font-mono); letter-spacing: 0.05em; position: relative; }
+
+    /* ── Footer ── */
+    footer { background: var(--ink); color: rgba(250,246,239,0.58); padding: 4rem 2rem; }
+    .footer-grid {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 3rem;
+      padding-bottom: 3rem;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+      margin-bottom: 2rem;
+    }
+    .footer-brand h3 { font-family: var(--font-display); font-size: 1.5rem; font-weight: 400; color: var(--cream); margin-bottom: 0.75rem; }
+    .footer-brand p { font-size: 0.9rem; font-weight: 300; line-height: 1.6; }
+    .footer-social { display: flex; gap: 0.75rem; margin-top: 1.5rem; }
+    .footer-social a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 2.2rem; height: 2.2rem;
+      border: 1px solid rgba(255,255,255,0.13);
+      border-radius: 50%;
+      color: rgba(250,246,239,0.48);
+      text-decoration: none;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .footer-social a:hover { border-color: rgba(255,255,255,0.48); color: var(--cream); }
+    .footer-col h4 { font-family: var(--font-mono); font-size: 0.62rem; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(250,246,239,0.3); margin-bottom: 1rem; }
+    .footer-col a { display: block; color: rgba(250,246,239,0.58); text-decoration: none; font-size: 0.9rem; font-weight: 300; margin-bottom: 0.5rem; transition: color 0.2s; }
+    .footer-col a:hover { color: var(--cream); }
+    .footer-bottom {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.04em;
+    }
+    .footer-tagline { opacity: 0.3; letter-spacing: 0.12em; font-size: 0.62rem; }
+
+    /* ── Animations ── */
+    @keyframes revealUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes revealFade {
+      to { opacity: 1; }
+    }
+    @keyframes scrollPulse {
+      0%, 100% { opacity: 0.7; }
+      50% { opacity: 0.15; }
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity 0.7s cubic-bezier(0.16,1,0.3,1), transform 0.7s cubic-bezier(0.16,1,0.3,1);
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-d1 { transition-delay: 0.1s; }
+    .reveal-d2 { transition-delay: 0.2s; }
+    .reveal-d3 { transition-delay: 0.3s; }
+
+    /* ── Responsive ── */
+    @media (max-width: 900px) {
+      .hero-content { grid-template-columns: 1fr; }
+      .hero-altitude { display: none; }
+      .provenance-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .story-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .features-head { grid-template-columns: 1fr; }
+      .features-grid { grid-template-columns: 1fr 1fr; }
+      .feat { border-bottom: 1px solid rgba(28,16,8,0.09); }
+      .feat:nth-child(2n) { border-right: none; }
+      .products-grid { grid-template-columns: 1fr; }
+      .test-grid { grid-template-columns: 1fr; }
+      .test-head { flex-direction: column; gap: 0.5rem; }
+      .delivery-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .footer-bottom { flex-direction: column; gap: 0.5rem; text-align: center; }
+    }
+    @media (max-width: 600px) {
+      nav { padding: 1rem 1.25rem; }
+      #hero { padding: 0 1.25rem 3.5rem; }
+      #story, #features, #products, #testimonials, #delivery { padding: 5rem 1.25rem; }
+      .features-grid { grid-template-columns: 1fr; }
+      .feat { border-right: none !important; }
+      .story-badge { display: none; }
+    }
+  </style>
 </head>
 
-<body class="bg-gray-50 font-sans leading-relaxed text-gray-800">
+<body>
 
-  <!-- Hero Section -->
-  <header class="relative h-screen bg-cover bg-center" style="background-image:url('ara.jpg');">
-    <video autoplay muted loop playsinline class="absolute inset-0 w-full h-full object-cover">
+  <!-- Nav -->
+  <nav id="main-nav">
+    <a href="#" class="nav-logo">La Centinela</a>
+    <a href="https://wa.me/593998783687?text=¡Hola!%20Quiero%20pedir%20arándanos%20de%20Finca%20La%20Centinela." class="nav-cta" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      Pedir ahora
+    </a>
+  </nav>
+
+  <!-- Hero -->
+  <section id="hero">
+    <video autoplay muted loop playsinline poster="ara.jpg">
       <source src="farm_dogs.mp4" type="video/mp4">
-      Tu navegador no soporta video HTML5.
     </video>
-    <div class="absolute inset-0 bg-black bg-opacity-50"></div>
-    <div class="container mx-auto h-full flex flex-col justify-center items-center text-center px-4">
-      <h1 class="text-4xl md:text-6xl font-bold text-white mb-4 animate-fadeInDown" data-aos="fade-down"
-        data-aos-duration="1000">Finca La Centinela</h1>
-      <p class="text-xl md:text-2xl text-green-200 mb-6 animate-fadeInUp" data-aos="fade-up" data-aos-duration="1000">
-        Arándanos frescos a 3.100 msnm<br>100% hidropónicos & polinizados por abejas</p>
-      <a href="https://wa.me/593998783687?text=¡Hola!%20Quiero%20pedir%20arándanos%20frescos%20de%20Finca%20La%20Centinela."
-        class="inline-block bg-green-500 hover:bg-green-600 text-white font-semibold py-3 px-6 rounded-lg shadow-lg transition-transform transform hover:scale-105"
-        data-aos="zoom-in" data-aos-duration="800" data-aos-delay="500">
-        <i class="fab fa-whatsapp mr-2"></i> Pide por WhatsApp
-      </a>
-    </div>
-    <div class="absolute bottom-8 w-full text-center text-white">
-      <a href="#features" class="text-2xl animate-bounce"><i class="fas fa-chevron-down"></i></a>
-    </div>
-  </header>
-
-  <!-- Características -->
-  <main class="container mx-auto py-16 px-4">
-    <section id="features" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-      <div class="bg-white rounded-xl shadow-lg p-6 text-center" data-aos="fade-up">
-        <i class="fas fa-mountain text-4xl text-green-600 mb-4"></i>
-        <h3 class="text-xl font-semibold mb-2">Altitud Óptima</h3>
-        <p>Cultivados a 3.100 msnm para máxima frescura y nutrientes.</p>
-      </div>
-      <div class="bg-white rounded-xl shadow-lg p-6 text-center" data-aos="fade-up" data-aos-delay="100">
-        <i class="fas fa-water text-4xl text-green-600 mb-4"></i>
-        <h3 class="text-xl font-semibold mb-2">Hidropónicos</h3>
-        <p>Sin suelo y sin pesticidas: cultivo limpio y sostenible.</p>
-      </div>
-      <div class="bg-white rounded-xl shadow-lg p-6 text-center" data-aos="fade-up" data-aos-delay="200">
-        <i class="fas fa-leaf text-4xl text-green-600 mb-4"></i>
-        <h3 class="text-xl font-semibold mb-2">Polinización Natural</h3>
-        <p>Abejas locales aseguran una polinización eficaz y ecológica.</p>
-      </div>
-      <div class="bg-white rounded-xl shadow-lg p-6 text-center" data-aos="fade-up" data-aos-delay="300">
-        <i class="fas fa-truck text-4xl text-green-600 mb-4"></i>
-        <h3 class="text-xl font-semibold mb-2">Entrega en Quito</h3>
-        <p>Recibe tus arándanos frescos directo a tu puerta.</p>
-      </div>
-    </section>
-
-    <!-- Testimonios mejor integrados -->
-    <section class="py-16" data-aos="fade-up">
-      <div class="max-w-5xl mx-auto text-center">
-        <h2 class="text-3xl font-bold mb-10 text-green-700">Nuestros clientes lo confirman 🍃</h2>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div class="bg-white p-6 rounded-xl shadow-md border border-green-100">
-            <p class="text-gray-700 italic">“¡Deliciosos y súper frescos! Los mejores arándanos que he probado.”</p>
-            <div class="mt-4 text-sm text-green-600 font-semibold">– Carla V., Quito</div>
-          </div>
-          <div class="bg-white p-6 rounded-xl shadow-md border border-green-100">
-            <p class="text-gray-700 italic">“La entrega fue rápida y el sabor es espectacular.”</p>
-            <div class="mt-4 text-sm text-green-600 font-semibold">– Andrés R., Cumbayá</div>
-          </div>
-          <div class="bg-white p-6 rounded-xl shadow-md border border-green-100">
-            <p class="text-gray-700 italic">“Me encanta que trabajen con abejas y sin pesticidas ❤️”</p>
-            <div class="mt-4 text-sm text-green-600 font-semibold">– Sofía M., Tumbaco</div>
-          </div>
+    <div class="hero-content">
+      <div>
+        <span class="hero-eyebrow label">Finca La Centinela — Ecuador</span>
+        <h1 class="hero-h1">Arándanos<br><em>de altura</em></h1>
+        <p class="hero-sub">100% hidropónicos · polinizados por abejas · sin pesticidas</p>
+        <div class="hero-actions">
+          <a href="https://wa.me/593998783687?text=¡Hola!%20Quiero%20pedir%20arándanos%20de%20Finca%20La%20Centinela." class="btn-primary" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            Pedir por WhatsApp
+          </a>
+          <a href="#story" class="btn-ghost">Nuestra historia</a>
         </div>
       </div>
-    </section>
+      <div class="hero-altitude">3.100<small>msnm</small></div>
+    </div>
+    <div class="scroll-hint">Explorar</div>
+  </section>
 
-  </main>
+  <!-- Provenance -->
+  <section id="provenance">
+    <div class="provenance-grid">
+      <div class="prov-item reveal">
+        <div class="prov-num">3.100<sup>m</sup></div>
+        <div class="prov-lbl">Altitud</div>
+        <p class="prov-desc">Sobre los Andes ecuatorianos, donde el frío nocturno concentra el sabor en cada baya.</p>
+      </div>
+      <div class="prov-item reveal reveal-d2">
+        <div class="prov-num">0</div>
+        <div class="prov-lbl">Pesticidas</div>
+        <p class="prov-desc">Cultivo 100% hidropónico. Sin suelo, sin químicos. Solo agua, nutrientes y sol andino.</p>
+      </div>
+      <div class="prov-item reveal reveal-d3">
+        <div class="prov-num">∞</div>
+        <div class="prov-lbl">Polinización natural</div>
+        <p class="prov-desc">Abejas locales polinizan cada flor. Natural, eficaz y respetuoso con el ecosistema.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Story -->
+  <section id="story">
+    <div class="story-grid">
+      <div class="story-img-wrap reveal">
+        <img src="ara.jpg" alt="Arándanos frescos de Finca La Centinela">
+        <div class="story-badge"><strong>100%</strong>Natural</div>
+      </div>
+      <div class="story-text">
+        <span class="label">Nuestra historia</span>
+        <h2>Del páramo andino<br>a <em>tu mesa</em></h2>
+        <div class="story-divider"></div>
+        <p class="reveal">En las estribaciones de los Andes, a 3.100 metros sobre el nivel del mar, nació Finca La Centinela con una misión clara: llevar arándanos frescos, limpios y llenos de sabor directamente a Quito.</p>
+        <p class="reveal reveal-d1">Nuestro sistema hidropónico elimina la necesidad de suelo y pesticidas. Las abejas locales hacen el resto. El resultado: un arándano excepcional, rico en antioxidantes y de sabor intenso.</p>
+        <p class="reveal reveal-d2">Cosechamos y entregamos en el mismo día para que sientas la diferencia de la frescura real.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section id="features">
+    <div class="features-wrap">
+      <div class="features-head reveal">
+        <h2>Por qué elegir<br>La Centinela</h2>
+        <p>Cuatro razones que hacen de nuestros arándanos algo verdaderamente especial.</p>
+      </div>
+      <div class="features-grid">
+        <div class="feat reveal">
+          <div class="feat-num">01</div>
+          <span class="feat-icon">⛰️</span>
+          <h3>Altitud Óptima</h3>
+          <p>A 3.100 msnm, el clima frío de la sierra concentra los azúcares y antioxidantes en cada baya.</p>
+        </div>
+        <div class="feat reveal reveal-d1">
+          <div class="feat-num">02</div>
+          <span class="feat-icon">💧</span>
+          <h3>Cultivo Hidropónico</h3>
+          <p>Sin suelo, sin pesticidas, sin herbicidas. Solo nutrientes controlados y agua pura de montaña.</p>
+        </div>
+        <div class="feat reveal reveal-d2">
+          <div class="feat-num">03</div>
+          <span class="feat-icon">🐝</span>
+          <h3>Polinización Natural</h3>
+          <p>Colonias de abejas locales polinizan cada flor de forma natural, garantizando frutos plenos.</p>
+        </div>
+        <div class="feat reveal reveal-d3">
+          <div class="feat-num">04</div>
+          <span class="feat-icon">🚚</span>
+          <h3>Entrega en Quito</h3>
+          <p>Cosechamos y despachamos el mismo día. Tus arándanos llegan frescos directo a tu puerta.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Products -->
+  <section id="products">
+    <div class="products-wrap">
+      <div class="products-head reveal">
+        <span class="label">Precios y presentaciones</span>
+        <h2>Elige tu pedido</h2>
+      </div>
+      <div class="products-grid">
+
+        <div class="product-card reveal">
+          <div class="prod-name">Presentación</div>
+          <div class="prod-size">250<span>g</span></div>
+          <p class="prod-desc">Ideal para probar o para consumo personal. Perfecto para smoothies y yogurt.</p>
+          <div class="prod-price">$3.75</div>
+          <a href="https://wa.me/593998783687?text=¡Hola!%20Quisiera%20pedir%20arándanos%20de%20250g%20de%20Finca%20La%20Centinela." class="prod-cta" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            Pedir 250g
+          </a>
+        </div>
+
+        <div class="product-card featured reveal reveal-d1">
+          <div class="prod-badge">Más popular</div>
+          <div class="prod-name">Presentación</div>
+          <div class="prod-size">500<span>g</span></div>
+          <p class="prod-desc">La opción favorita. Perfecta para la familia o para compartir entre amigos.</p>
+          <div class="prod-price">$7.50</div>
+          <a href="https://wa.me/593998783687?text=¡Hola!%20Quisiera%20pedir%20arándanos%20de%20500g%20de%20Finca%20La%20Centinela." class="prod-cta" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            Pedir 500g
+          </a>
+        </div>
+
+        <div class="product-card reveal reveal-d2">
+          <div class="prod-name">Presentación</div>
+          <div class="prod-size">1<span>kg</span></div>
+          <p class="prod-desc">Para los más apasionados. Ideal para mermeladas, repostería o congelación.</p>
+          <div class="prod-price">$15.00</div>
+          <a href="https://wa.me/593998783687?text=¡Hola!%20Quisiera%20pedir%20arándanos%20de%201kg%20de%20Finca%20La%20Centinela." class="prod-cta" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            Pedir 1kg
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section id="testimonials">
+    <div class="test-wrap">
+      <div class="test-head reveal">
+        <h2>Lo dicen<br>nuestros clientes</h2>
+        <span class="label">Testimonios</span>
+      </div>
+      <div class="test-grid">
+        <div class="testimonial reveal">
+          <div class="test-q">Deliciosos y súper frescos. Los mejores arándanos que he probado en Quito, sin duda.</div>
+          <div class="test-author">Carla V. — Quito</div>
+        </div>
+        <div class="testimonial reveal reveal-d1">
+          <div class="test-q">La entrega fue rápida y el sabor es espectacular. Se nota que son recién cosechados.</div>
+          <div class="test-author">Andrés R. — Cumbayá</div>
+        </div>
+        <div class="testimonial reveal reveal-d2">
+          <div class="test-q">Me encanta que trabajen con abejas y sin pesticidas. Un producto limpio y delicioso.</div>
+          <div class="test-author">Sofía M. — Tumbaco</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Delivery -->
+  <section id="delivery">
+    <div class="delivery-grid">
+      <div class="delivery-text">
+        <span class="label">Cobertura de entrega</span>
+        <h2 class="reveal">Entregamos<br>en Quito</h2>
+        <p class="reveal reveal-d1">Realizamos entregas en toda el área metropolitana de Quito y valles. Coordina tu pedido por WhatsApp y recibe tus arándanos el mismo día o según disponibilidad.</p>
+        <ul class="zones reveal reveal-d2">
+          <li>Quito</li>
+          <li>Valle de los Chillos</li>
+          <li>Valle de Cumbayá</li>
+        </ul>
+      </div>
+      <div class="delivery-visual reveal reveal-d2">
+        <div class="dv-icon">🫐</div>
+        <h3>Pedido hoy,<br>en tu puerta</h3>
+        <p>Entrega coordinada por WhatsApp</p>
+      </div>
+    </div>
+  </section>
 
   <!-- Footer -->
-  <footer class="bg-white py-6">
-    <div class="container mx-auto text-center text-gray-600">
-      &copy; 2025 Finca La Centinela. Todos los derechos reservados.<br>
-      <a href="#" class="hover:underline">Política de Privacidad</a> |
-      <a href="#" class="hover:underline">Términos y Condiciones</a>
-      <div class="mt-2 py-4">
-<span class="text-gray-600 text-sm">Síguenos:</span>
-          <a href="https://www.instagram.com/arandanoscentinela/" target="_blank" aria-label="Instagram"
-             class="text-pink-500 hover:text-pink-600 text-xl">
-            <i class="fab fa-instagram"></i>
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <h3>Finca La Centinela</h3>
+        <p>Arándanos hidropónicos cultivados a 3.100 msnm en los Andes ecuatorianos. Entrega en Quito y valles.</p>
+        <div class="footer-social">
+          <a href="https://www.instagram.com/arandanoscentinela/" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
           </a>
-          <a href="https://wa.me/593998783687" target="_blank" aria-label="WhatsApp"
-             class="text-green-500 hover:text-green-600 text-xl">
-            <i class="fab fa-whatsapp"></i>
+          <a href="https://wa.me/593998783687" target="_blank" rel="noopener" aria-label="WhatsApp">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
           </a>
+        </div>
       </div>
+      <div class="footer-col">
+        <h4>Navegación</h4>
+        <a href="#story">Nuestra historia</a>
+        <a href="#features">Por qué elegirnos</a>
+        <a href="#products">Productos</a>
+        <a href="#delivery">Zonas de entrega</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Finca La Centinela. Todos los derechos reservados.</span>
+      <span class="footer-tagline">ANDES · ECUADOR · 3100M</span>
     </div>
   </footer>
 
-
-  <!-- AOS Initialization -->
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
-    AOS.init({ once: true });
+    // Nav scroll
+    const nav = document.getElementById('main-nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 60);
+    }, { passive: true });
+
+    // Scroll reveal
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
   </script>
 
 </body>
-
 </html>
